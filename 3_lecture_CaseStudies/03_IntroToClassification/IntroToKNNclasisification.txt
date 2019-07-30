@@ -1,0 +1,14 @@
+# Statistical learning refers to a collection of mathematical and computation tools to understand data.
+# In what is ofter called supervised learning, the goal is to estimate or predict an output bsed on one or more inputs.
+# The inouts have many names (e.g. predictors, independent variables, features and variables)
+# The outputs have many names (e.g. response variables or dependent variables)
+        # if the response is quantitive (a exact value): regression problem
+        # if the response is qualitative (a general feature): classification problem
+
+# This intro deal with one specific approach to classification: k-Nearest Neighbors classifier (KNN)
+# GOAL: is to set up a classifier such that when it's presented with a new observation whose category is not known,
+# it will attempt to assign that observation to a category, or a class, based on the observations for which it does know
+# the true category.
+#       knn: given a positive integer k (say 5) and a new data point
+                # 1. it identifies those k points in the data that are nearest to the point
+                # 2. classifies the new data point as beloging to the most common class among those k neighbors

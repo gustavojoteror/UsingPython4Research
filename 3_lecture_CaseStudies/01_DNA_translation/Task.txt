@@ -1,0 +1,5 @@
+Tasks:
+1. Manually download DNA and protein sequence data.
+2. Import DNA data into python
+3. Create an algorithm to translate the DNA
+4. Check if translation matches your download.

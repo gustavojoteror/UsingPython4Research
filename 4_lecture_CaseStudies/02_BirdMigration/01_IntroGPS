@@ -1,0 +1,48 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+textfile = "bird_tracking.csv"
+birddata = pd.read_csv(textfile)
+print(birddata.info())
+# What is printed
+# Int64Index: 61920 entries, 0 to 61919
+# Data columns (total 8 columns):
+# altitude              61920 non-null int64
+# date_time             61920 non-null object
+# device_info_serial    61920 non-null int64
+# direction             61477 non-null float64
+# latitude              61920 non-null float64
+# longitude             61920 non-null float64
+# speed_2d              61477 non-null float64
+# bird_name             61920 non-null object
+# dtypes: float64(4), int64(2), object(2)
+# memory usage: 4.3+ MB
+# None
+
+################################################
+# let's start by extracting the trajectory from the bird Eric
+ix= birddata.bird_name == 'Eric'        # bird_name is a columnn of the data. this line return the index of Eric
+x, y = birddata.longitude[ix], birddata.latitude[ix]
+plt.figure(figsize=(7,7))
+plt.plot(x,y, '.')
+plt.axis('equal')
+plt.show()
+# plt.savefig('EricTrajectory.pdf')
+
+################################################
+# extracting the data for all bird_names
+bird_names = pd.unique(birddata.bird_name)  # returns an array of the unique instances
+plt.figure(figsize=(7,7))
+for bird_name in bird_names:
+    ix= birddata.bird_name == bird_name
+    x, y = birddata.longitude[ix], birddata.latitude[ix]
+    plt.plot(x,y, '.', label = bird_name)
+plt.axis('equal')
+plt.xlabel('longitude')
+plt.ylabel('latitude')
+plt.legend(loc='lower right')
+plt.savefig('Birds_Trajectory.pdf')
+
+
+
